@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mrp_production_form_view_label" model="ir.ui.view">
+        <field name="name">mrp.production.form.label</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view" />
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Label" name="label">
+                    <group>
+                        <group>
+                            <field name="label_title" readonly="state in ('done', 'cancel')" />
+                            <field name="label_subtitle" readonly="state in ('done', 'cancel')" />
+                            <field name="label_lifetime" readonly="state in ('done', 'cancel')" />
+                            <field name="label_expiry_date" readonly="state in ('done', 'cancel')" />
+                            <field name="label_storage_temp" readonly="state in ('done', 'cancel')" />
+                            <field name="label_fixed_weight" readonly="state in ('done', 'cancel')" />
+                        </group>
+                        <group>
+                            <field name="label_ingredient" readonly="state in ('done', 'cancel')" />
+                        </group>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>
