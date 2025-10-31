@@ -1,0 +1,73 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mrp_product_label
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-31 12:00+0000\n"
+"PO-Revision-Date: 2025-10-31 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mrp_product_label
+#: model:ir.model.fields,field_description:mrp_product_label.field_product_product__label_title
+#: model:ir.model.fields,field_description:mrp_product_label.field_mrp_production__label_title
+msgid "Title"
+msgstr "Title"
+
+#. module: mrp_product_label
+#: model:ir.model.fields,field_description:mrp_product_label.field_product_product__label_subtitle
+#: model:ir.model.fields,field_description:mrp_product_label.field_mrp_production__label_subtitle
+msgid "Subtitle"
+msgstr "Subtitle"
+
+#. module: mrp_product_label
+#: model:ir.model.fields,field_description:mrp_product_label.field_product_product__label_ingredients
+#: model:ir.model.fields,field_description:mrp_product_label.field_mrp_production__label_ingredients
+msgid "Ingredients"
+msgstr "Ingredients"
+
+#. module: mrp_product_label
+#: model:ir.model.fields,field_description:mrp_product_label.field_product_product__label_lifetime
+#: model:ir.model.fields,field_description:mrp_product_label.field_mrp_production__label_lifetime
+msgid "Lifetime (days)"
+msgstr "Lifetime (days)"
+
+#. module: mrp_product_label
+#: model:ir.model.fields,field_description:mrp_product_label.field_product_product__label_storage_temp
+#: model:ir.model.fields,field_description:mrp_product_label.field_mrp_production__label_storage_temp
+msgid "Storage Temperature (°C)"
+msgstr "Storage Temperature (°C)"
+
+#. module: mrp_product_label
+#: model:ir.model.fields,field_description:mrp_product_label.field_product_product__label_fixed_weight
+#: model:ir.model.fields,field_description:mrp_product_label.field_mrp_production__label_fixed_weight
+msgid "Fixed weight"
+msgstr "Fixed weight"
+
+#. module: mrp_product_label
+#: model:ir.model.fields,field_description:mrp_product_label.field_mrp_production__label_expiry_date
+msgid "Expiry Date"
+msgstr "Expiry Date"
+
+#. module: mrp_product_label
+#: model:ir.model.fields,help:mrp_product_label.field_product_product__label_fixed_weight
+#: model:ir.model.fields,help:mrp_product_label.field_mrp_production__label_fixed_weight
+msgid "Leave empty to use scale weight during printing labels"
+msgstr "Leave empty to use scale weight during printing labels"
+
+#. module: mrp_product_label
+#: model:ir.model.fields,help:mrp_product_label.field_mrp_production__label_lifetime
+msgid "From MO date or pasteurisation date to compute expiry date on labels"
+msgstr "From MO date or pasteurisation date to compute expiry date on labels"
+
+#. module: mrp_product_label
+#: model:ir.model.fields,help:mrp_product_label.field_mrp_production__label_expiry_date
+msgid "Computed from the production/pasteurisation date and the product's label lifetime, but can be edited manually."
+msgstr "Computed from the production/pasteurisation date and the product's label lifetime, but can be edited manually."

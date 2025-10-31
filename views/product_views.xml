@@ -16,7 +16,7 @@
                             <field name="label_fixed_weight"/>
                         </group>
                         <group>
-                            <field name="label_ingredient"/>
+                            <field name="label_ingredients"/>
                         </group>
                     </group>
                 </page>

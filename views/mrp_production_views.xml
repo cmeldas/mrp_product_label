@@ -17,7 +17,7 @@
                             <field name="label_fixed_weight" readonly="state in ('done', 'cancel')" />
                         </group>
                         <group>
-                            <field name="label_ingredient" readonly="state in ('done', 'cancel')" />
+                            <field name="label_ingredients" readonly="state in ('done', 'cancel')" />
                         </group>
                     </group>
                 </page>
