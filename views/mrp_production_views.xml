@@ -20,6 +20,14 @@
                             <field name="label_ingredients" readonly="state in ('done', 'cancel')" />
                         </group>
                     </group>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_update_label_data"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-refresh"
+                            invisible="state in ('done', 'cancel')"
+                            string="Get new label data from product" />
+                    </div>
                 </page>
             </notebook>
         </field>

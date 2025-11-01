@@ -18,10 +18,9 @@ class MrpProduction(models.Model):
     @api.depends('pasteurisation_start', 'date_start', 'label_lifetime')
     def _compute_label_expiry_date(self):
         for record in self:
-            
             if record.pasteurisation_start and record.label_lifetime:
                 record.label_expiry_date = record.pasteurisation_start + timedelta(days=record.label_lifetime)
-            elif record.date_start and record.label_expiry_date is False and record.label_lifetime:
+            elif record.date_start and record.label_lifetime:
                 record.label_expiry_date = record.date_start + timedelta(days=record.label_lifetime)
             else:
                 record.label_expiry_date = False
@@ -37,6 +36,11 @@ class MrpProduction(models.Model):
                 'label_fixed_weight': self.product_id.label_fixed_weight,
                 'label_lifetime': self.product_id.label_lifetime,
             })
+
+    def action_update_label_data(self):
+        """Update label data from the product."""
+        for record in self:
+            record._update_label_data_from_product()
 
     @api.model_create_multi
     def create(self, vals_list):

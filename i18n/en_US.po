@@ -71,3 +71,8 @@ msgstr "From MO date or pasteurisation date to compute expiry date on labels"
 #: model:ir.model.fields,help:mrp_product_label.field_mrp_production__label_expiry_date
 msgid "Computed from the production/pasteurisation date and the product's label lifetime, but can be edited manually."
 msgstr "Computed from the production/pasteurisation date and the product's label lifetime, but can be edited manually."
+
+#. module: mrp_product_label
+#: model_terms:ir.ui.view,arch_db:mrp_product_label.mrp_production_form_view_label
+msgid "Get new label data from product"
+msgstr "Get new label data from product"
