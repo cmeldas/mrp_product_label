@@ -9,6 +9,7 @@ class MrpProduction(models.Model):
     label_title = fields.Char(string='Title')
     label_subtitle = fields.Char(string='Subtitle')
     label_ingredients = fields.Text(string='Ingredients')
+    label_description = fields.Html(string='Description', sanitize=True)
     label_storage_temp = fields.Integer(string='Storage Temperature (°C)')
     label_fixed_weight = fields.Char(string='Fixed Weight', help="Leave empty to use scale weight during printing labels")
     label_lifetime = fields.Integer(string='Lifetime (days)', help="From MO date or pasteurisation date to compute expiry date on labels")
@@ -32,6 +33,7 @@ class MrpProduction(models.Model):
                 'label_title': self.product_id.label_title,
                 'label_subtitle': self.product_id.label_subtitle,
                 'label_ingredients': self.product_id.label_ingredients,
+                'label_description': self.product_id.label_description,
                 'label_storage_temp': self.product_id.label_storage_temp,
                 'label_fixed_weight': self.product_id.label_fixed_weight,
                 'label_lifetime': self.product_id.label_lifetime,
@@ -57,6 +59,7 @@ class MrpProduction(models.Model):
             self.label_title = self.product_id.label_title
             self.label_subtitle = self.product_id.label_subtitle
             self.label_ingredients = self.product_id.label_ingredients
+            self.label_description = self.product_id.label_description
             self.label_storage_temp = self.product_id.label_storage_temp
             self.label_fixed_weight = self.product_id.label_fixed_weight
             self.label_lifetime = self.product_id.label_lifetime

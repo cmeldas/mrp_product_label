@@ -17,6 +17,7 @@
                         </group>
                         <group>
                             <field name="label_ingredients"/>
+                            <field name="label_description" widget="html"/>
                         </group>
                     </group>
                 </page>
