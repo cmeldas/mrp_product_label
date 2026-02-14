@@ -12,6 +12,7 @@
                             <field name="label_title" readonly="state in ('done', 'cancel')" />
                             <field name="label_subtitle" readonly="state in ('done', 'cancel')" />
                             <field name="label_lifetime" readonly="state in ('done', 'cancel')" />
+                            <field name="label_lifetime_from_print" readonly="state in ('done', 'cancel')" />
                             <field name="label_expiry_date" readonly="state in ('done', 'cancel')" />
                             <field name="label_storage_temp" readonly="state in ('done', 'cancel')" />
                             <field name="label_fixed_weight" readonly="state in ('done', 'cancel')" />

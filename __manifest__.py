@@ -1,6 +1,6 @@
 {
     'name': 'Product Label Management',
-    'version': '18.0.1.0.0',
+    'version': '18.0.1.1.0',
     'category': 'Manufacturing',
     'summary': 'Add label information to product variants',
     'description': """
@@ -15,6 +15,7 @@
     'author': 'cmeldas@gmail.com',
     'depends': ['product', 'mrp', 'mrp_pasteurization'],
     'data': [
+        'data/cron.xml',
         'views/product_views.xml',
         'views/mrp_production_views.xml',
     ],

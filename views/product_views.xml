@@ -12,6 +12,7 @@
                             <field name="label_title"/>
                             <field name="label_subtitle"/>
                             <field name="label_lifetime"/>
+                            <field name="label_lifetime_from_print"/>
                             <field name="label_storage_temp"/>
                             <field name="label_fixed_weight"/>
                         </group>

@@ -73,6 +73,18 @@ msgid "Computed from the production/pasteurisation date and the product's label 
 msgstr "Vypočteno z data výroby/pasterizace a doby trvanlivosti produktu, lze upravit ručně."
 
 #. module: mrp_product_label
+#: model:ir.model.fields,field_description:mrp_product_label.field_product_product__label_lifetime_from_print
+#: model:ir.model.fields,field_description:mrp_product_label.field_mrp_production__label_lifetime_from_print
+msgid "Lifetime from Print Date"
+msgstr "Trvanlivost od data tisku"
+
+#. module: mrp_product_label
+#: model:ir.model.fields,help:mrp_product_label.field_product_product__label_lifetime_from_print
+#: model:ir.model.fields,help:mrp_product_label.field_mrp_production__label_lifetime_from_print
+msgid "If checked, the expiry date on the label will be counted from the date of printing instead of the pasteurisation date."
+msgstr "Pokud je zaškrtnuto, datum spotřeby na štítku se počítá od data tisku místo od data pasterizace."
+
+#. module: mrp_product_label
 #: model_terms:ir.ui.view,arch_db:mrp_product_label.mrp_production_form_view_label
 msgid "Get new label data from product"
 msgstr "Načíst nové údaje štítku z produktu"

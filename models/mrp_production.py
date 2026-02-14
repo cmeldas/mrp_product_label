@@ -13,18 +13,33 @@ class MrpProduction(models.Model):
     label_storage_temp = fields.Integer(string='Storage Temperature (°C)')
     label_fixed_weight = fields.Char(string='Fixed Weight', help="Leave empty to use scale weight during printing labels")
     label_lifetime = fields.Integer(string='Lifetime (days)', help="From MO date or pasteurisation date to compute expiry date on labels")
+    label_lifetime_from_print = fields.Boolean(string='Lifetime from Print Date', default=False, help="If checked, the expiry date on the label will be counted from the date of printing instead of the pasteurisation date.")
 
     label_expiry_date = fields.Date(string='Expiry Date', compute='_compute_label_expiry_date', store=True, help="Computed from the production/pasteurisation date and the product's label lifetime, but can be edited manually.")
 
-    @api.depends('pasteurisation_start', 'date_start', 'label_lifetime')
+    @api.depends('pasteurisation_start', 'date_start', 'label_lifetime', 'label_lifetime_from_print')
     def _compute_label_expiry_date(self):
+        today = fields.Date.today()
         for record in self:
-            if record.pasteurisation_start and record.label_lifetime:
+            if not record.label_lifetime:
+                record.label_expiry_date = False
+            elif record.label_lifetime_from_print:
+                record.label_expiry_date = today + timedelta(days=record.label_lifetime)
+            elif record.pasteurisation_start:
                 record.label_expiry_date = record.pasteurisation_start + timedelta(days=record.label_lifetime)
-            elif record.date_start and record.label_lifetime:
+            elif record.date_start:
                 record.label_expiry_date = record.date_start + timedelta(days=record.label_lifetime)
             else:
                 record.label_expiry_date = False
+
+    def _cron_recompute_label_expiry_date(self):
+        """Recompute expiry date daily for MOs where lifetime is counted from print date."""
+        productions = self.search([
+            ('label_lifetime_from_print', '=', True),
+            ('label_lifetime', '>', 0),
+            ('state', 'not in', ('done', 'cancel')),
+        ])
+        productions._compute_label_expiry_date()
 
     def _update_label_data_from_product(self):
         self.ensure_one()
@@ -37,6 +52,7 @@ class MrpProduction(models.Model):
                 'label_storage_temp': self.product_id.label_storage_temp,
                 'label_fixed_weight': self.product_id.label_fixed_weight,
                 'label_lifetime': self.product_id.label_lifetime,
+                'label_lifetime_from_print': self.product_id.label_lifetime_from_print,
             })
 
     def action_update_label_data(self):
@@ -63,5 +79,6 @@ class MrpProduction(models.Model):
             self.label_storage_temp = self.product_id.label_storage_temp
             self.label_fixed_weight = self.product_id.label_fixed_weight
             self.label_lifetime = self.product_id.label_lifetime
+            self.label_lifetime_from_print = self.product_id.label_lifetime_from_print
            # self._compute_label_expiry_date()
         return res
