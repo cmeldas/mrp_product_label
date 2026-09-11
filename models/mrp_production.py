@@ -41,19 +41,27 @@ class MrpProduction(models.Model):
         ])
         productions._compute_label_expiry_date()
 
+    LABEL_FIELDS = (
+        'label_title',
+        'label_subtitle',
+        'label_ingredients',
+        'label_description',
+        'label_storage_temp',
+        'label_fixed_weight',
+        'label_lifetime',
+        'label_lifetime_from_print',
+    )
+
+    def _label_vals_from_product(self):
+        """Hodnoty polí etikety zkopírované z produktu (varianty) této zakázky."""
+        self.ensure_one()
+        product = self.product_id
+        return {name: product[name] for name in self.LABEL_FIELDS}
+
     def _update_label_data_from_product(self):
         self.ensure_one()
         if self.product_id:
-            self.write({
-                'label_title': self.product_id.label_title,
-                'label_subtitle': self.product_id.label_subtitle,
-                'label_ingredients': self.product_id.label_ingredients,
-                'label_description': self.product_id.label_description,
-                'label_storage_temp': self.product_id.label_storage_temp,
-                'label_fixed_weight': self.product_id.label_fixed_weight,
-                'label_lifetime': self.product_id.label_lifetime,
-                'label_lifetime_from_print': self.product_id.label_lifetime_from_print,
-            })
+            self.write(self._label_vals_from_product())
 
     def action_update_label_data(self):
         """Update label data from the product."""
@@ -69,16 +77,11 @@ class MrpProduction(models.Model):
         return productions
 
     @api.onchange('product_id')
-    def _onchange_product_id(self):
-        res = super()._onchange_product_id()
+    def _onchange_product_id_label_data(self):
+        """Při změně produktu ve formuláři předvyplnit etiketu z produktu.
+
+        Vlastní jméno metody: Odoo 19 už `mrp.production._onchange_product_id`
+        nemá, takže se na jádro nevoláme ani ho nepřepisujeme.
+        """
         if self.product_id:
-            self.label_title = self.product_id.label_title
-            self.label_subtitle = self.product_id.label_subtitle
-            self.label_ingredients = self.product_id.label_ingredients
-            self.label_description = self.product_id.label_description
-            self.label_storage_temp = self.product_id.label_storage_temp
-            self.label_fixed_weight = self.product_id.label_fixed_weight
-            self.label_lifetime = self.product_id.label_lifetime
-            self.label_lifetime_from_print = self.product_id.label_lifetime_from_print
-           # self._compute_label_expiry_date()
-        return res
+            self.update(self._label_vals_from_product())

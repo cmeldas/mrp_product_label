@@ -1,6 +1,6 @@
 {
     'name': 'Product Label Management',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.1.0',
     'category': 'Manufacturing',
     'summary': 'Add label information to product variants',
     'description': """
