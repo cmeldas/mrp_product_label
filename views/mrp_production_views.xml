@@ -27,7 +27,7 @@
                         <button name="action_update_label_data"
                             type="object"
                             class="oe_stat_button"
-                            icon="fa-refresh"
+                            icon="refresh"
                             invisible="state in ('done', 'cancel')"
                             string="Get new label data from product" />
                     </div>

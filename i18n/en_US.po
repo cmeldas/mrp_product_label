@@ -76,3 +76,9 @@ msgstr "Computed from the production/pasteurisation date and the product's label
 #: model_terms:ir.ui.view,arch_db:mrp_product_label.mrp_production_form_view_label
 msgid "Get new label data from product"
 msgstr "Get new label data from product"
+
+#. module: mrp_product_label
+#: model:ir.model.fields,field_description:mrp_product_label.field_product_product__label_description
+#: model:ir.model.fields,field_description:mrp_product_label.field_mrp_production__label_description
+msgid "Label Description"
+msgstr "Label Description"

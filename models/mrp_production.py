@@ -9,7 +9,7 @@ class MrpProduction(models.Model):
     label_title = fields.Char(string='Title')
     label_subtitle = fields.Char(string='Subtitle')
     label_ingredients = fields.Text(string='Ingredients')
-    label_description = fields.Html(string='Description', sanitize=True)
+    label_description = fields.Html(string='Label Description', sanitize=True)
     label_storage_temp = fields.Integer(string='Storage Temperature (°C)')
     label_fixed_weight = fields.Char(string='Fixed Weight', help="Leave empty to use scale weight during printing labels")
     label_lifetime = fields.Integer(string='Lifetime (days)', help="From MO date or pasteurisation date to compute expiry date on labels")

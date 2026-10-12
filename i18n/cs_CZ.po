@@ -88,3 +88,9 @@ msgstr "Pokud je zaškrtnuto, datum spotřeby na štítku se počítá od data t
 #: model_terms:ir.ui.view,arch_db:mrp_product_label.mrp_production_form_view_label
 msgid "Get new label data from product"
 msgstr "Načíst nové údaje štítku z produktu"
+
+#. module: mrp_product_label
+#: model:ir.model.fields,field_description:mrp_product_label.field_product_product__label_description
+#: model:ir.model.fields,field_description:mrp_product_label.field_mrp_production__label_description
+msgid "Label Description"
+msgstr "Popis na etiketě"

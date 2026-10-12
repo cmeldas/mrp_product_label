@@ -1,6 +1,6 @@
 {
     'name': 'Product Label Management',
-    'version': '19.0.1.1.0',
+    'version': '20.0.1.1.0',
     'category': 'Manufacturing',
     'summary': 'Add label information to product variants',
     'description': """
@@ -12,7 +12,8 @@
         * Label Weight
         * Label Storage Temperature
     """,
-    'author': 'cmeldas@gmail.com',
+    'author': 'Matouš Čmelík',
+    'maintainer': 'cmeldas@gmail.com',
     'depends': ['product', 'mrp', 'mrp_pasteurization'],
     'data': [
         'data/cron.xml',
